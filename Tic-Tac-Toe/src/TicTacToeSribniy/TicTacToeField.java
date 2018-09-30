@@ -13,8 +13,8 @@ public class TicTacToeField {
 
 	private final int field[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-	private Player p1, p2; // Собственно сами игроки , заделка на будущее что бы легче было вводить
-							// функционал
+	private Player p1, p2; // Г‘Г®ГЎГ±ГІГўГҐГ­Г­Г® Г±Г Г¬ГЁ ГЁГЈГ°Г®ГЄГЁ , Г§Г Г¤ГҐГ«ГЄГ  Г­Г  ГЎГіГ¤ГіГ№ГҐГҐ Г·ГІГ® ГЎГ» Г«ГҐГЈГ·ГҐ ГЎГ»Г«Г® ГўГўГ®Г¤ГЁГІГј
+							// ГґГіГ­ГЄГ¶ГЁГ®Г­Г Г«
 	private Scanner in = new Scanner(System.in);
 	private int n;
 	private boolean isXMark = false;
@@ -57,7 +57,7 @@ public class TicTacToeField {
 	}
 
 	/*
-	 * собсвенно цикл игры с проверками и выводом на консоль
+	 * Г±Г®ГЎГ±ГўГҐГ­Г­Г® Г¶ГЁГЄГ« ГЁГЈГ°Г» Г± ГЇГ°Г®ГўГҐГ°ГЄГ Г¬ГЁ ГЁ ГўГ»ГўГ®Г¤Г®Г¬ Г­Г  ГЄГ®Г­Г±Г®Г«Гј
 	 */
 	public void startGame() {
 		if (gameRetry) {
@@ -98,21 +98,21 @@ public class TicTacToeField {
 	}
 
 	private boolean isWin(int n) {
-		// проверка по строке
+		// ГЇГ°Г®ГўГҐГ°ГЄГ  ГЇГ® Г±ГІГ°Г®ГЄГҐ
 		int row = n - n % 3;
 		if (field[row] == field[row + 1] && field[row] == field[row + 2]) {
 			return true;
 		}
-		// проверка по столбцу
+		// ГЇГ°Г®ГўГҐГ°ГЄГ  ГЇГ® Г±ГІГ®Г«ГЎГ¶Гі
 		int col = n % 3;
 		if (field[col] == field[col + 3] && field[col] == field[col + 6]) {
 			return true;
 		}
-		// проверяю что быы не вышло на грань
+		// ГЇГ°Г®ГўГҐГ°ГїГѕ Г·ГІГ® ГЎГ»Г» Г­ГҐ ГўГ»ГёГ«Г® Г­Г  ГЈГ°Г Г­Гј
 		if (n % 2 != 0) {
 			return false;
 		}
-		// проверка по диагонали
+		// ГЇГ°Г®ГўГҐГ°ГЄГ  ГЇГ® Г¤ГЁГ ГЈГ®Г­Г Г«ГЁ
 		if (n % 4 == 0) {
 			if (field[0] == field[4] && field[0] == field[8]) {
 				return true;
@@ -187,6 +187,7 @@ public class TicTacToeField {
 	}
 
 	private String readHistory() {
+	if(history.isEmpty()) {
 		try (BufferedReader bf = new BufferedReader(new FileReader(f))) {
 			String s;
 			while ((s = bf.readLine()) != null) {
@@ -196,6 +197,9 @@ public class TicTacToeField {
 			e.printStackTrace();
 		}
 		return history;
+		}
+		else {
+			return history;
+		}
 	}
-
 }
